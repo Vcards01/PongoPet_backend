@@ -15,5 +15,6 @@ app.use(cors())
 app.use(express.json())
 app.use('/files',express.static(path.resolve(__dirname,"..","uploads")));
 app.use(routes)
+require("./controllers/ProjectController")(app);
 
 app.listen(3333);

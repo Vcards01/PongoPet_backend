@@ -1,5 +1,5 @@
 const Item = require ("../models/Item")
-const User = require('../models/UserPetShop')
+const User = require('../models/PetShop')
 
 module.exports={
     async store(req,res){

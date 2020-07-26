@@ -1,24 +1,15 @@
 const express = require("express");
 const multer = require("multer")
 const uploadConfig = require('./config/upload')
-const ClienteController =require("./controllers/ClienteController")
-const PetShopController= require("./controllers/PetShopController")
+const UserController =require("./controllers/UserController")
 const ItemsController = require("./controllers/ItemController")
 
 const routes = express.Router();
 const upload = multer(uploadConfig);
 
-routes.post('/',(req,res)=>{
-    return res.json({message:"Ola"} )
-});
-
-//Rotas do Cliente
-routes.post("/registerCliente",ClienteController.store)
-routes.post("/loginCliente",ClienteController.show)
-
-//Rotas do PetShop
-routes.post("/registerPetShop",PetShopController.store)
-routes.post("/loginPetShop",PetShopController.show)
+//Rotas Usuario
+routes.post("/register",UserController.register)
+routes.post("/auth",UserController.athenticate)
 
 //Rotas Item
 routes.post("/items",upload.single("thumbnail"),ItemsController.store)
