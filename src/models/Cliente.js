@@ -9,18 +9,9 @@ const UserSchema = new mongoose.Schema({
         required:true,
         select:false,
     },
-    address:{
-        zipCode:String,
-        city:String,
-        neighborhood:String,
-        street:String,
-        number:Number,
-    },
-    items:[{
-        item:String,
-        price:Number,
-        quantity:Number,
-    }],
+    address:[],
+    payment:[],
+    purchases:[],
 });
 
 UserSchema.pre('save',async function(next){

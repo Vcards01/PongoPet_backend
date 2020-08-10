@@ -5,8 +5,9 @@ const ItemSchema = new mongoose.Schema({
     quantity:Number,
     petshop:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"UserPetShop"
+        ref:"PetShop"
     },
+    petshop_name:String,
     category:String,
     price:Number,
     thumbnail:String,
