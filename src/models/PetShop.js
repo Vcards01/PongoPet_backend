@@ -5,21 +5,21 @@ const UserSchema = new mongoose.Schema({
     name: String,
     petshop_name:String,
     email:String,
+    confirmed:false,
     password:{
         type:String,
         required:true,
         select:false,
     },
-    address:
-        {
-        zipCode:String,
-        city:String,
-        neighborhood:String,
-        street:String,
-        number:Number,},
-    contact:[String],
+    account:{
+        banco:String,
+        agencia:String,
+        conta:String,
+    },
+    contact:String,
     time:String,
     entrega:Boolean,
+    earn:0,
 
 });
 UserSchema.pre('save',async function(next){

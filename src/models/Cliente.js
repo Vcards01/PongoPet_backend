@@ -9,6 +9,7 @@ const UserSchema = new mongoose.Schema({
         required:true,
         select:false,
     },
+    confirmed:false,
     address:[],
     payment:[],
     purchases:[],

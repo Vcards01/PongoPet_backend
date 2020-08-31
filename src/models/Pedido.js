@@ -9,7 +9,7 @@ const PedidoSchema = new mongoose.Schema({
     cliente_name:String,
     endereco:{},
     pagamento:{},
-    approved:Boolean,
+    approved:String,
 })
 
 module.exports = mongoose.model('Pedido',PedidoSchema)

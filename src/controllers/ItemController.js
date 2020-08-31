@@ -2,6 +2,7 @@ const Item = require ("../models/Item")
 const User = require('../models/PetShop');
 
 module.exports={
+
     async store(req,res){
 
         const {filename} = req.file;
@@ -88,26 +89,13 @@ module.exports={
         return res.json(items)
     },
 
-    async get_by_petshop(req,res)
-    {
-        let id=req.body.id
-        let items
-        let categories=req.body.activeCategory
-        if (categories !== "Todas categorias")
-        {
-            items=await Item.find({$and:[{"category":categories},{"petshop":id}]});
-        }
-        else{
-            items=await Item.find({"petshop":id});
-        }
-        if(!items)
-        {
-            return res.json(({"error":'Erro na busca',"status":"400"}))
-        }
-        return res.json(items)
+    async destroy(req,res){
+        const{id}=req.body
+        await Item.deleteOne({_id:id})
+        return res.json({"ok":true})
     },
 
-    async indexCategories(req,res){
+    async index_categories(req,res){
        let categories=await Item.distinct("category");
        if(!categories)
        {
